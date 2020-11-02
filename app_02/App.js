@@ -22,7 +22,7 @@ camera.position.z = 5;
 
 //Processus pour la creation du tore
 // 1 creation de la geometrie
-var toreGeo = new THREE.TorusGeometry();
+var toreGeo = new THREE.TorusGeometry(2, 0.4, 6, 100);
 
 //2 creation du materiau
 var toreMat = new THREE.MeshBasicMaterial({ color: 0xffffff });
