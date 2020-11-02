@@ -34,7 +34,6 @@ var tore = new THREE.Mesh(toreGeo, toreMat);
 scene.add(tore);
 
 
-
 //cette fonction s'execute tout le temps comme void draw
 var render = function() {
     requestAnimationFrame(render);
