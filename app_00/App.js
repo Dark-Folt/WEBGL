@@ -1,3 +1,6 @@
+/*ce programmme affiche une sphere*/
+
+
 // 1 creation de la scene
 var scene = new THREE.Scene();
 
@@ -29,11 +32,6 @@ scene.add(sphere);
 
 
 //cette fonction s'execute tout le temps comme void draw
-camera.position.z = 5;
-var sphGeo = new THREE.SphereGeometry(1, 30, 30);
-var sphMat = new THREE.MeshBasicMaterial({ color: 0xff0000 });
-var sph = new THREE.Mesh(sphGeo, sphMat);
-scene.add(sph);
 
 var render = function() {
     requestAnimationFrame(render);
