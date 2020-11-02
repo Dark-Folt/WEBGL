@@ -18,10 +18,10 @@ document.body.appendChild(renderer.domElement);
 
 camera.position.z = 5;
 
-// 1-creation de la forme geometrique de la sphère
+// 1-creation de la forme geometrique du cube 
 var boxGeo = new THREE.BoxGeometry(1, 1, 1);
 
-// 2-creation du materiau pour la sphère avec un objet color
+// 2-creation du materiau pour le cube avec un objet color
 var boxMat = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
 
 // 3-creation de l'objet
