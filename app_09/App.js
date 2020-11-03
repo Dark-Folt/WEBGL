@@ -16,6 +16,7 @@ camera.lookAt(scene.position);
 //creation du rendu 
 var renderer = new THREE.WebGLRenderer();
 renderer.setSize(WW, WH);
+renderer.setClearColor(0xffffff, 0.8);
 document.body.appendChild(renderer.domElement);
 
 
@@ -53,7 +54,19 @@ pointLight.position.set(30, 30, 30);
 var spotLight = new THREE.SpotLight(0xffffff);
 spotLight.position.set(-330, 0, 0);
 
+
+var guiControl = new function() {
+    this.spherePosX = 0;
+    this.spherePosY = 5;
+    this.boxRotateX = 0.03;
+}
+
 var controls = new THREE.OrbitControls(camera, renderer.domElement);
+var gui = new dat.GUI();
+gui.add(guiControl, 'spherePosX', 0, 30);
+gui.add(guiControl, 'spherePosY', 0, 10);
+gui.add(guiControl, 'boxRotateX', 0, 1);
+
 
 //ajout des objets à la scene
 scene.add(plane);
@@ -64,19 +77,19 @@ scene.add(spotLight);
 
 
 
-var pos = 10;
 var t = 0;
 
 //cette fonction s'execute tout le temps comme void draw
 var render = function() {
-    sphere.position.x = pos;
-    sphere.position.y = pos;
+    sphere.position.x = guiControl.spherePosX;
+    sphere.position.y = guiControl.spherePosY;
 
     controls.update();
     requestAnimationFrame(render);
-    box.rotation.y += 0.03 * Math.PI / 2;
-    sphere.position.x += pos * Math.cos(t * 2 * Math.PI);
-    sphere.position.y += pos * Math.sin(t * 2 * Math.PI);
+
+    box.rotation.y += guiControl.boxRotateX;
+    sphere.position.x += 10 * Math.cos(t * 2 * Math.PI);
+    sphere.position.y += 10 * Math.sin(t * 2 * Math.PI);
     if (t > 1) {
         t = 0;
     }
