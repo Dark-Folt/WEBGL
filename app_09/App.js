@@ -48,6 +48,11 @@ var sphGeo = new THREE.SphereGeometry(1, 30, 30);
 var sphMat = new THREE.MeshBasicMaterial({ color: 0x00ffff });
 var sphere = new THREE.Mesh(sphGeo, sphMat);
 
+//creation d'une autre sphere
+var sphMat2 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+var sphere2 = new THREE.Mesh(sphGeo, sphMat2);
+
+
 var pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(30, 30, 30);
 
@@ -72,6 +77,7 @@ gui.add(guiControl, 'boxRotateX', 0, 1);
 scene.add(plane);
 scene.add(box);
 scene.add(sphere);
+scene.add(sphere2);
 scene.add(pointLight);
 scene.add(spotLight);
 
@@ -84,12 +90,18 @@ var render = function() {
     sphere.position.x = guiControl.spherePosX;
     sphere.position.y = guiControl.spherePosY;
 
+    sphere2.position.x = guiControl.spherePosX;
+    sphere2.position.y = guiControl.spherePosY + 5;
+
     controls.update();
     requestAnimationFrame(render);
 
     box.rotation.y += guiControl.boxRotateX;
     sphere.position.x += 10 * Math.cos(t * 2 * Math.PI);
     sphere.position.y += 10 * Math.sin(t * 2 * Math.PI);
+
+    sphere2.position.x += 10 * Math.cos(t * 2 * Math.PI);
+    sphere2.position.y += 20 * Math.sin(-t * 2 * Math.PI);
     if (t > 1) {
         t = 0;
     }
