@@ -52,7 +52,7 @@ var sphere = new THREE.Mesh(sphGeo, sphMat);
 var sphMat2 = new THREE.MeshBasicMaterial({ color: 0xffff00 });
 var sphere2 = new THREE.Mesh(sphGeo, sphMat2);
 
-
+//creation d'un point lumineux
 var pointLight = new THREE.PointLight(0xffffff);
 pointLight.position.set(30, 30, 30);
 
